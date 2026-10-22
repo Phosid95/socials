@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mein Creator Profil | Social Links</title>
+    <!-- Einbinden von FontAwesome für die Social-Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* Grunddesign im modernen Dark-Mode */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container, der die Breite auf Mobilgeräten optimiert */
+        .profile-container {
+            width: 100%;
+            max-width: 480px;
+            padding: 40px 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        /* Profilbild (wird perfekt rund maskiert) */
+        .profile-img {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #1f2833;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Name / Handle */
+        .profile-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Kurze Beschreibung / Bio */
+        .profile-bio {
+            font-size: 14px;
+            color: #8b949e;
+            margin: 0 0 32px 0;
+            line-height: 1.5;
+        }
+
+        /* Bereich für die Buttons */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        /* Styling der einzelnen Link-Buttons */
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 16px;
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icon-Positionierung links im Button */
+        .link-card i {
+            position: absolute;
+            left: 20px;
+            font-size: 20px;
+        }
+
+        /* Hover-Effekte (beim Drüberfahren oder Tippen) */
+        .link-card:hover {
+            transform: translateY(-2px);
+            background-color: #21262d;
+            border-color: #8b949e;
+        }
+
+        /* Spezieller Highlight-Button (z.B. für deinen Live-Stream) */
+        .link-card.highlight {
+            background: linear-gradient(45deg, #8a3ab9, #e95950, #fccc63);
+            border: none;
+            color: #ffffff;
+        }
+        
+        .link-card.highlight:hover {
+            background: linear-gradient(45deg, #a154d1, #f06e66, #fdd57e);
+            box-shadow: 0 6px 20px rgba(233, 89, 80, 0.4);
+        }
+
+        /* Fußzeile */
+        .footer {
+            margin-top: 48px;
+            font-size: 12px;
+            color: #484f58;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        
+        <!-- Profilbereich: Ersetze die Bild-URL mit deinem Profilbild -->
+        <img src="https://placeholder.com" alt="Profilbild" class="profile-img">
+        <h1 class="profile-name">@DeinName</h1>
+        <p class="profile-bio">Willkommen auf meiner Page! Hier findest du alle meine aktuellen Projekte, Streams und Socials auf einen Blick. ✨</p>
+
+        <!-- Button-Liste -->
+        <div class="links-wrapper">
+
+            <!-- Ein Highlight-Button (z.B. für Twitch / YouTube Live) -->
+            <a href="https://twitch.tv" target="_blank" class="link-card highlight">
+                <i class="fa-brands fa-twitch"></i>
+                Mein Live-Stream
+            </a>
+
+            <!-- Normale Social-Buttons -->
+            <a href="https://instagram.com" target="_blank" class="link-card">
+                <i class="fa-brands fa-instagram"></i>
+                Instagram
+            </a>
+
+            <a href="https://youtube.com" target="_blank" class="link-card">
+                <i class="fa-brands fa-youtube"></i>
+                YouTube
+            </a>
+
+            <a href="https://discord.gg" target="_blank" class="link-card">
+                <i class="fa-brands fa-discord"></i>
+                Tritt dem Discord bei
+            </a>
+
+            <a href="https://twitter.com" target="_blank" class="link-card">
+                <i class="fa-brands fa-x-twitter"></i>
+                X (Twitter)
+            </a>
+
+        </div>
+
+        <div class="footer">
+            &copy; 2026 @DeinName. Gehostet auf GitHub Pages.
+        </div>
+
+    </div>
+
+</body>
+</html>
