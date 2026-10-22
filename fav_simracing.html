@@ -3,142 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Creator Profil | Social Links</title>
-    <!-- Einbinden von FontAwesome für die Social-Icons -->
+    <title>fav_simracing | Links</title>
+    <!-- FontAwesome für Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Stylische Retro-Schriftarten von Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        /* Grunddesign im modernen Dark-Mode */
+        /* --- SYNTHWAVE ANIMIERTER HINTERGRUND --- */
         body {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0b0c10;
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(to bottom, #050515 0%, #1a0b2e 40%, #4a0d4e 70%, #c41c7b 100%);
+            background-size: 100% 200%;
+            animation: skyShift 10s ease infinite alternate;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Container, der die Breite auf Mobilgeräten optimiert */
+        /* Himmel-Animation */
+        @keyframes skyShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
+        }
+
+        /* Neon-Sonne im Hintergrund */
+        .retro-sun {
+            position: fixed;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(to bottom, #ffdd00, #f80759);
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(248, 7, 89, 0.7);
+            z-index: 0;
+            mask-image: linear-gradient(to bottom, 
+                white 0%, white 60%, 
+                transparent 60%, transparent 65%, 
+                white 65%, white 73%, 
+                transparent 73%, transparent 79%, 
+                white 79%, white 86%, 
+                transparent 86%, transparent 91%, 
+                white 91%, white 96%, 
+                transparent 96%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, 
+                white 0%, white 60%, 
+                transparent 60%, transparent 65%, 
+                white 65%, white 73%, 
+                transparent 73%, transparent 79%, 
+                white 79%, white 86%, 
+                transparent 86%, transparent 91%, 
+                white 91%, white 96%, 
+                transparent 96%, transparent 100%);
+            animation: sunPulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunPulse {
+            0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 40px rgba(248, 7, 89, 0.5); }
+            100% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 80px rgba(248, 7, 89, 0.9); }
+        }
+
+        /* Animiertes 3D-Bodenraster */
+        .grid-floor {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45vh;
+            background-image: 
+                linear-gradient(rgba(0, 242, 254, 0.15) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(0, 242, 254, 0.15) 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: center top;
+            transform: perspective(200px) rotateX(65deg);
+            transform-origin: top center;
+            animation: gridMove 2s linear infinite;
+            z-index: 0;
+            border-top: 2px solid #00f2fe;
+            box-shadow: 0 -20px 50px rgba(0, 242, 254, 0.3);
+        }
+
+        @keyframes gridMove {
+            0% { background-position: center 0px; }
+            100% { background-position: center 40px; }
+        }
+
+        /* Horizont-Glühen */
+        .horizon-glow {
+            position: fixed;
+            bottom: 45vh;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(248, 7, 89, 0.4), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* --- CONTENT CARD STYLE --- */
         .profile-container {
             width: 100%;
-            max-width: 480px;
-            padding: 40px 20px;
+            max-width: 440px;
+            padding: 40px 24px;
             text-align: center;
             box-sizing: border-box;
+            position: relative;
+            z-index: 10;
+            background: rgba(11, 5, 26, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid #ff007f;
+            border-radius: 24px;
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(0, 242, 254, 0.2);
+            margin: 20px;
         }
 
-        /* Profilbild (wird perfekt rund maskiert) */
+        /* Profilbild Rundmaskierung & Neon-Glow */
         .profile-img {
-            width: 96px;
-            height: 96px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #1f2833;
+            border: 3px solid #00f2fe;
             margin-bottom: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
         }
 
-        /* Name / Handle */
+        /* Name im Outrun-Font */
         .profile-name {
-            font-size: 20px;
-            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
             margin: 0 0 8px 0;
-            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff007f, 0 0 20px #ff007f;
         }
 
-        /* Kurze Beschreibung / Bio */
+        /* Bio Text */
         .profile-bio {
-            font-size: 14px;
-            color: #8b949e;
+            font-size: 15px;
+            color: #00f2fe;
             margin: 0 0 32px 0;
+            font-weight: 600;
             line-height: 1.5;
+            text-shadow: 0 0 5px rgba(0, 242, 254, 0.5);
         }
 
-        /* Bereich für die Buttons */
         .links-wrapper {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 18px;
         }
 
-        /* Styling der einzelnen Link-Buttons */
+        /* Standard Buttons */
         .link-card {
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             padding: 16px;
-            background-color: #161b22;
-            border: 1px solid #30363d;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid #00f2fe;
             border-radius: 12px;
             text-decoration: none;
             color: #ffffff;
-            font-size: 15px;
-            font-weight: 600;
-            transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
         }
 
-        /* Icon-Positionierung links im Button */
         .link-card i {
             position: absolute;
             left: 20px;
             font-size: 20px;
         }
 
-        /* Hover-Effekte (beim Drüberfahren oder Tippen) */
+        /* Hover-Effekt für Standard Buttons */
         .link-card:hover {
-            transform: translateY(-2px);
-            background-color: #21262d;
-            border-color: #8b949e;
+            transform: scale(1.03);
+            background: rgba(0, 242, 254, 0.1);
+            border-color: #ff007f;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6), inset 0 0 8px rgba(255, 0, 127, 0.4);
+            text-shadow: 0 0 8px #ffffff;
         }
 
-        /* Spezieller Highlight-Button (z.B. für deinen Live-Stream) */
+        /* Pulsierender Twitch-Highlight-Button */
         .link-card.highlight {
-            background: linear-gradient(45deg, #8a3ab9, #e95950, #fccc63);
-            border: none;
-            color: #ffffff;
+            background: linear-gradient(90deg, #ff007f, #7928ca, #ff007f);
+            background-size: 200% auto;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6);
+            animation: gradientShift 3s linear infinite, buttonPulse 2s infinite;
         }
-        
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        @keyframes buttonPulse {
+            0% { box-shadow: 0 0 15px rgba(255, 0, 127, 0.6); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 127, 0.9), 0 0 10px rgba(0, 242, 254, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(255, 0, 127, 0.6); }
+        }
+
         .link-card.highlight:hover {
-            background: linear-gradient(45deg, #a154d1, #f06e66, #fdd57e);
-            box-shadow: 0 6px 20px rgba(233, 89, 80, 0.4);
+            transform: scale(1.05);
+            border-color: #00f2fe;
         }
 
         /* Fußzeile */
         .footer {
-            margin-top: 48px;
-            font-size: 12px;
-            color: #484f58;
+            margin-top: 40px;
+            font-size: 13px;
+            font-family: 'Orbitron', sans-serif;
+            color: #ff007f;
+            text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
+    <!-- Synthwave Hintergrund-Elemente -->
+    <div class="retro-sun"></div>
+    <div class="grid-floor"></div>
+    <div class="horizon-glow"></div>
+
+    <!-- Dein modifiziertes Profil-Segment -->
     <div class="profile-container">
         
-        <!-- Profilbereich: Ersetze die Bild-URL mit deinem Profilbild -->
-        <img src="https://scontent-fra5-1.cdninstagram.com/v/t51.82787-19/850496305_18131711989657131_2729926911285684384_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=3t1OdpbzJ9YQ7kNvwHcSBYB&_nc_oc=AdrTrDdJ4BvZbVLBsWefsoWm9CmdBklyEOy2QKNu7ONTCJzvnfVg0dPmUJS34c_Cp-Sh0poNwXD_1DkWqrPgDZid&_nc_zt=24&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=Z4MAJO_NBG_9AtMXRd9khg&_nc_ss=7a6a8&oh=00_AQPv1Y2ZmXnv6xmLx2WexnftLvLBDPmSSnq4B8h92_-u-g&oe=6AE037CE" alt="Profilbild" class="profile-img">
+        <!-- Profilbereich -->
+        <img src="https://scontent-fra5-1.cdninstagram.com/v/t51.82787-19/850496305_18131711989657131_2729926911285684384_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGlj.nd3dy4xMDgwLkMzIn0%3D&_nc_ohc=3t1OdpbzJ9YQ7kNvwHcSBYB&_nc_oc=AdrTrDdJ4BvZbVLBsWefsoWm9CmdBklyEOy2QKNu7ONTCJzvnfVg0dPmUJS34c_Cp-Sh0poNwXD_1DkWqrPgDZid&_nc_zt=24&_nc_ht=scontent-fra5-1.cdninstagram.com&_nc_gid=Z4MAJO_NBG_9AtMXRd9khg&_nc_ss=7a6a8&oh=00_AQPv1Y2ZmXnv6xmLx2WexnftLvLBDPmSSnq4B8h92_-u-g&oe=6AE037CE" alt="Profilbild" class="profile-img">
         <h1 class="profile-name">@fav_simracing</h1>
         <p class="profile-bio">Willkommen auf meiner Page! Hier findest du alle meine aktuellen Projekte, Streams und Socials auf einen Blick. ✨</p>
 
         <!-- Button-Liste -->
         <div class="links-wrapper">
 
-            <!-- Ein Highlight-Button (z.B. für Twitch / YouTube Live) -->
+            <!-- Twitch Live Highlight -->
             <a href="https://www.twitch.tv/fav_simracing" target="_blank" class="link-card highlight">
                 <i class="fa-brands fa-twitch"></i>
                 Mein Live-Stream
             </a>
 
-            <!-- Normale Social-Buttons -->
+            <!-- Instagram -->
             <a href="https://www.instagram.com/fav_simracing/" target="_blank" class="link-card">
                 <i class="fa-brands fa-instagram"></i>
                 Instagram
             </a>
 
+            <!-- YouTube -->
             <a href="https://www.youtube.com/@Porniracing" target="_blank" class="link-card">
                 <i class="fa-brands fa-youtube"></i>
                 YouTube
